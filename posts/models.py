@@ -11,6 +11,10 @@ class Post(models.Model):
     class Meta: 
         ordering = ['-created']
 
+     # self = Course model and passing name to admin
+    def __str__(self):
+        return self.title
+
 class Vote(models.Model):
     voter = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
